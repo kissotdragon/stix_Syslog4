@@ -20,8 +20,8 @@ This is a script that connects to a TAXII server discovery service, grabs the ST
 ### Save Data to a File
     python3 stix_Syslog4.py --outfile -x 'soltra01' --taxii_endpoint '/taxii-discovery-service' -c system.Default --taxiiport=80 --taxii_username=soltraAnalyst1 --taxii_password='password' --taxii_start_time='2016-04-25 00:00:00' --taxii_end_time='2016-04-25 23:59:59'
 
-### Send Data to ArcSight
-    python3 stix_Syslog4.py --arcsight -x 'soltra01' --taxii_endpoint '/taxii-discovery-service' -c system.Default --taxiiport=80 --taxii_username=soltraAnalyst1 --taxii_password='password' --taxii_start_time='2016-04-25 00:00:00' --taxii_end_time='2016-04-25 23:59:59'
+### Send Data to Syslog Server
+    python3 stix_Syslog4.py --SysServer -x 'soltra01' --taxii_endpoint '/taxii-discovery-service' -c system.Default --taxiiport=80 --taxii_username=soltraAnalyst1 --taxii_password='password' --taxii_start_time='2016-04-25 00:00:00' --taxii_end_time='2016-04-25 23:59:59'
 
 ## Import from a STIX file
     python3 stix_Syslog4.py --verbose --file STIXDocument.xml 
@@ -38,7 +38,7 @@ Options:
   --strict              Raise an error on an unsupported indicator. Defaults
                         to simply printing to stderr.
   --verbose             Print various inputs and outputs to STDERR
-  -a, --arcsight        Send the data to ArcSight using CEF Syslog
+  -a, --sysserver        Send the data to syslog server using CEF format message
   -x TAXII, --taxii=TAXII
                         TAXII Server Endpoint. Either this parameter or a STIX
                         file is required.
