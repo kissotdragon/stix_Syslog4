@@ -140,7 +140,7 @@ def handle_website(item, args, dest, dest_port):
     if args.outfile:
         with open('WebSites.txt', 'a') as mysites:
             mysites.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Known Malicious Website|1|request={item} shost={u.netloc} msg=CE-OSINT Malicious Domain {u.netloc}'
         time.sleep(0.02)
         syslog(cef, host=dest, port=dest_port)
@@ -152,7 +152,7 @@ def handle_email(item, args, dest, dest_port):
     if args.outfile:
         with open('EmailAddresses.txt', 'a') as myemails:
             myemails.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Known Malicious Email|1|suser={item} msg=CE-OSINT Malicious Email {item}'
         time.sleep(0.02)
         syslog(cef, host=dest, port=dest_port)
@@ -164,7 +164,7 @@ def handle_ip(item, args, dest, dest_port):
     if args.outfile:
         with open('MyIPs.txt', 'a') as myips:
             myips.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Known Malicious Host|1|src={item} msg=CE-OSINT Malicious IP {item}'
         time.sleep(0.2)
         syslog(cef, host=dest, port=dest_port)
@@ -179,7 +179,7 @@ def handle_domain(item, args, dest, dest_port):
     if args.outfile:
         with open('AdditionalDomains.txt', 'a') as adom:
             adom.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Malicious Domain|1|request={item} msg=CE-OSINT Malicious Domain {d.netloc}'
         time.sleep(0.2)
         syslog(cef, host=dest, port=dest_port)
@@ -192,7 +192,7 @@ def handle_ip_port(item, args, dest, dest_port):
     if args.outfile:
         with open('IPandPort.txt', 'a') as IPdom:
             IPdom.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Known Malicious IP and Port|1|src={data[0]} dpt={data[1]} msg=NH-ISAC Malicious IP {data[0]} and Port {data[1]}'
         time.sleep(0.2)
         syslog(cef, host=dest, port=dest_port)
@@ -204,7 +204,7 @@ def handle_indicator(item, args, dest, dest_port):
     if args.outfile:
         with open('Indicators.txt', 'a') as Idom:
             Idom.write(f"{item}\n")
-    if args.arcsight:
+    if args.sysserver:
         cef = f'CEF:0|CE-OSINT|CE-ISAC|1.0|100|Known Malicious Indicator|1|cs1={item} msg=CE-OSINT Malicious Indicator {item}'
         time.sleep(0.2)
         syslog(cef, host=dest, port=dest_port)
