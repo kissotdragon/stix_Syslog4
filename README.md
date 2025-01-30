@@ -3,7 +3,7 @@
 A STIX/TAXII client that grabs STIX data from a TAXII discovery service, parses out the indicators and observables, and can send the data via CEF Syslog to a Syslog endpoint
 
 # Requirements
-This script has been updated to run in Python3 -- a dependancy of the STIX library.  
+This script has been updated to run in Python3 --   
 
 This script requires some python dependencies.  You can install these using pip3.
 
