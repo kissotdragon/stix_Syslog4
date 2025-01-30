@@ -217,7 +217,7 @@ def get_parser():
     parser.add_argument('-y', '--type', help='Only import this type of indicator', type=str)
     parser.add_argument('--strict', action='store_true', help='Raise an error on an unsupported indicator. Defaults to simply printing to stderr.')
     parser.add_argument('--verbose', action='store_true', help='Print various inputs and outputs to STDERR')
-    parser.add_argument('-a', '--arcsight', help='Send the data to ArcSight using CEF Syslog', action='store_true')
+    parser.add_argument('-a', '--sysserver', help='Send the data to syslog server using CEF Syslog', action='store_true')
     parser.add_argument('-x', '--taxii', help='TAXII Server Endpoint. Either this parameter or a STIX file is required.', type=str)
     parser.add_argument('-p', '--taxiiport', default="80", help='Port for the TAXII Server', type=str)
     parser.add_argument('-c', "--collection", default="default", help="TAXII Data Collection to poll. Defaults to 'default'.")
